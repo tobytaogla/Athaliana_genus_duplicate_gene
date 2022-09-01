@@ -15,4 +15,4 @@ Tandem duplication, one of the major types of duplication, provides the raw mate
 
 ## 4. Data analysis
 
-### 1. [RNA_seq Analyses](https://github.com/tobytaogla/Athaliana_genus_duplicate_gene/blob/main/RNA_seq_analysis)
+### A. [RNA_seq Analyses](https://github.com/tobytaogla/Athaliana_genus_duplicate_gene/blob/main/RNA_seq_analysis)
