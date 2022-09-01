@@ -13,8 +13,8 @@ Tandem duplication, one of the major types of duplication, provides the raw mate
 Sequencing data information could be also found in Methods and supplementary Data 7.
 
 ### 1. RNA_seq raw data:
-Raw illumina sequencing data 
-***Arabidopsis thaliana*** used tissues: pollen * 3, stigma * 3, leaf, floral bud, root, stem.  	
+Raw illumina sequencing data   
+***Arabidopsis thaliana*** used tissues: pollen * 3, stigma * 3, leaf, floral bud, root, stem.   	
 ***Arabidopsis lyrata*** used tissues: pollen * 3, stigma * 3, leaf, floral bud, root, stem.  
 ***Capsella rubella*** used tissues: pollen * 3, stigma * 3, leaf, floral bud, root, stem.  
 ***Brassica rapa*** used tissues: pollen * 3, stigma * 3
@@ -49,29 +49,29 @@ H3K27me3 (leaf SRR1509472, floral bud SRR1509478).
 MNase-Seq data: (leaf SRR1536110, floral bud SRR1536143)
 
 ### 6. Other data
-##### [Glyco_hydro_127 (PF07944)](https://pfam.xfam.org/family/Glyco_hydro_127#tabview=tab6)  
+##### a. [Glyco_hydro_127 (PF07944)](https://pfam.xfam.org/family/Glyco_hydro_127#tabview=tab6)  
 Beta-L-arabinofuranosidase, GH127.  
 One member of this family, from *Bidobacterium longicum*, UniProtKB:E8MGH8 has been characterised as an unusual beta-L-arabinofuranosidase enzyme, EC:3.2.1.185. It rleases l-arabinose from the l-arabinofuranose (Araf)-beta1,2-Araf disaccharide and also transglycosylates 1-alkanols with retention of the anomeric configuration. Terminal beta-l-arabinofuranosyl residues have been found in arabinogalactan proteins from a mumber of different plant species. beta-l-Arabinofuranosyl linkages with 1-4 arabinofuranosides are also found in the sugar chains of extensin and solanaceous lectins, hydroxyproline (Hyp)2-rich glycoproteins that are widely observed in plant cell wall fractions. The critical residue for HypBA1 catalytically important residues (Glu322, Glu338, Cys340, Cys417, and Cys418).
 
-##### Protein predicted structure
+##### b. Protein predicted structure
 Download from the [AlphaFold DB](https://alphafold.ebi.ac.uk/)  
 [AT5G12950](https://alphafold.ebi.ac.uk/entry/Q9LXU4)  
 [AT5G12960](https://alphafold.ebi.ac.uk/entry/Q84W43)  
 
 ## 2. Software
-##### Linux software:
+##### Linux software:  
 Trimmomatic-0.35, star/2.6.1d, diamond/2.0.6, iqtree-1.6.12, seqkitv0.16.1, fastqc v0.11.8, subread-2.0.3, MAFFT v7.487, FastQCv0.11.8, TMHMM-2.0, ncbi-blast-2.8.1+, PAML4.9j, PAL2NAL v11, KaKs_Caculator2.0, HMMER-3.3, samtools-1.9, bedtools 2.25.0, bedGraphToBigWig v4, pyfaidx, deeptools 3.5.1, Sambamba-0.8.2, macs2 2.2.7.1, fastp/0.19.4, bowtie2 2.3.4.3, 
 
-##### R package: 
+##### R package:  
 ComplexHeatmap, PopGenome 2.7.5, FactoMineR 2.4
 
-##### Mac software: 
+##### Mac software:   
 Genevestigator 9.1.0, Jalview 2.11.2.2, TBtools v1.09852,  IGV_2.9.4, PyMOL 2.5.2
 
-##### Windows:
+##### Windows:  
 GeneDoc
 
-##### Bioinformatics online tools
+##### Bioinformatics online tools  
 iTOL <https://itol.embl.de/>.   
 DeepTMHMM <https://dtu.biolib.com/DeepTMHMM>   
 meme v5.4.1 <https://meme-suite.org/meme/tools/meme>  
