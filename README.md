@@ -10,7 +10,7 @@ Tandem duplication, one of the major types of duplication, provides the raw mate
 
 
 ## Data 
-Sequencing data information could be also found in supplementary Data 7.
+Sequencing data information could be also found in Methods and supplementary Data 7.
 
 ### 1. RNA_seq raw data:
 Raw illumina sequencing data 
@@ -41,10 +41,10 @@ Choose Pseudogenomes, select all the accessions, search for the desired gene, an
 ### 5. Epigentics sequencing data
 Raw data downloaded from the [NCBI Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra)  
 
-Chip-Seq data:
-H3K27ac  (leaf SRR1509474, floral bud SRR1509479)
-H3K4me1  (leaf SRR1509477, floral bud SRR1509476)
-H3K27me3 (leaf SRR1509472, floral bud SRR1509478) 
+Chip-Seq data:  
+H3K27ac  (leaf SRR1509474, floral bud SRR1509479). 
+H3K4me1  (leaf SRR1509477, floral bud SRR1509476). 
+H3K27me3 (leaf SRR1509472, floral bud SRR1509478).  
 
 MNase-Seq data: (leaf SRR1536110, floral bud SRR1536143)
 
@@ -54,9 +54,9 @@ Beta-L-arabinofuranosidase, GH127.
 One member of this family, from *Bidobacterium longicum*, UniProtKB:E8MGH8 has been characterised as an unusual beta-L-arabinofuranosidase enzyme, EC:3.2.1.185. It rleases l-arabinose from the l-arabinofuranose (Araf)-beta1,2-Araf disaccharide and also transglycosylates 1-alkanols with retention of the anomeric configuration. Terminal beta-l-arabinofuranosyl residues have been found in arabinogalactan proteins from a mumber of different plant species. beta-l-Arabinofuranosyl linkages with 1-4 arabinofuranosides are also found in the sugar chains of extensin and solanaceous lectins, hydroxyproline (Hyp)2-rich glycoproteins that are widely observed in plant cell wall fractions. The critical residue for HypBA1 catalytically important residues (Glu322, Glu338, Cys340, Cys417, and Cys418).
 
 ##### Protein predicted structure
-Download from the [AlphaFold DB](https://alphafold.ebi.ac.uk/) 
-[AT5G12950](https://alphafold.ebi.ac.uk/entry/Q9LXU4)
-[AT5G12960](https://alphafold.ebi.ac.uk/entry/Q84W43)
+Download from the [AlphaFold DB](https://alphafold.ebi.ac.uk/)  
+[AT5G12950](https://alphafold.ebi.ac.uk/entry/Q9LXU4)  
+[AT5G12960](https://alphafold.ebi.ac.uk/entry/Q84W43)  
 
 ## 2. Software
 ##### Linux software:
