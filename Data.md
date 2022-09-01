@@ -46,3 +46,6 @@ One member of this family, from *Bidobacterium longicum*, UniProtKB:E8MGH8 has b
 Download from the [AlphaFold DB](https://alphafold.ebi.ac.uk/)  
 [AT5G12950](https://alphafold.ebi.ac.uk/entry/Q9LXU4)  
 [AT5G12960](https://alphafold.ebi.ac.uk/entry/Q84W43)  
+
+##### c. Protein expression data
+Use [ATHENA](http://athena.proteomics.wzw.tum.de/) to obtain the Protein expression data of AT5G12950 and AT5G12960
