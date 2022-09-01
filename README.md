@@ -14,7 +14,7 @@ Sequencing data information could be also found in Methods and supplementary Dat
 
 ### 1. RNA_seq raw data:
 Raw illumina sequencing data   
-***Arabidopsis thaliana*** used tissues: pollen * 3, stigma * 3, leaf, floral bud, root, stem.   	
+***Arabidopsis thaliana*** used tissues: pollen * 3, stigma * 3, leaf, floral bud, root, stem.  
 ***Arabidopsis lyrata*** used tissues: pollen * 3, stigma * 3, leaf, floral bud, root, stem.  
 ***Capsella rubella*** used tissues: pollen * 3, stigma * 3, leaf, floral bud, root, stem.  
 ***Brassica rapa*** used tissues: pollen * 3, stigma * 3
