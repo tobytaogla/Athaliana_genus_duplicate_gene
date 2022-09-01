@@ -38,7 +38,7 @@ H3K27me3 (leaf SRR1509472, floral bud SRR1509478).
 MNase-Seq data: (leaf SRR1536110, floral bud SRR1536143)
 
 ### 6. Other data
-##### a. [Glyco_hydro_127 (PF07944)](https://pfam.xfam.org/family/Glyco_hydro_127#tabview=tab6)⋅⋅  
+##### a. [Glyco_hydro_127 (PF07944)](https://pfam.xfam.org/family/Glyco_hydro_127#tabview=tab6)  
 Beta-L-arabinofuranosidase, GH127.  
 One member of this family, from *Bidobacterium longicum*, UniProtKB:E8MGH8 has been characterised as an unusual beta-L-arabinofuranosidase enzyme, EC:3.2.1.185. It rleases l-arabinose from the l-arabinofuranose (Araf)-beta1,2-Araf disaccharide and also transglycosylates 1-alkanols with retention of the anomeric configuration. Terminal beta-l-arabinofuranosyl residues have been found in arabinogalactan proteins from a mumber of different plant species. beta-l-Arabinofuranosyl linkages with 1-4 arabinofuranosides are also found in the sugar chains of extensin and solanaceous lectins, hydroxyproline (Hyp)2-rich glycoproteins that are widely observed in plant cell wall fractions. The critical residue for HypBA1 catalytically important residues (Glu322, Glu338, Cys340, Cys417, and Cys418).
 
