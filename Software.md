@@ -5,7 +5,7 @@ Trimmomatic-0.35, star/2.6.1d, diamond/2.0.6, iqtree-1.6.12, seqkitv0.16.1, fast
 ComplexHeatmap, PopGenome 2.7.5, FactoMineR 2.4
 
 ##### Mac software:   
-Genevestigator 9.1.0, Jalview 2.11.2.2, TBtools v1.09852,  IGV_2.9.4, PyMOL 2.5.2
+Genevestigator 9.1.0, Jalview 2.11.2.2, TBtools v1.09852,  IGV_2.9.4, PyMOL 2.5.2, GraphPad Prism v9.0.0
 
 ##### Windows:  
 GeneDoc
