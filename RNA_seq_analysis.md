@@ -77,15 +77,111 @@ write.csv(alyr_tpm,paste0(prefix,"_tpm.csv"))
 ```
 Draw heatmap.  
 
+```
+library(devtools)
+library(ComplexHeatmap)
+library(circlize)
+library(gridtext)
+library(dplyr)
+expression_raw <- read.table("heatmap_expression.matrix")
+colnames(expression_raw) <- c('Gene ID','leaf','flower','stem','root','Pollen_1', 'Pollen_2', 'Pollen_3', 'Stigma_1', 'Stigma_2', 'Stigma_3')
+expression_raw <- mutate(expression_raw,pollen=(Pollen_1 + Pollen_2 + Pollen_3)/3)
+expression_raw <- mutate(expression_raw,Stigma=(Stigma_1 + Stigma_2 + Stigma_3)/3)
+expression <- select(expression_raw,-Pollen_1, -Pollen_2, -Pollen_3, -Stigma_1, -Stigma_2, -Stigma_3)
+row.names(expression) <- expression[['Gene ID']]
+expression <- expression[2:7]
+logplusone <- function(x) {log10(x[1] + 1)}
+expression[,] <- as.data.frame(lapply(expression[,], FUN = function(x) {sapply(x, FUN = logplusone)}))
+col_fun <- colorRamp2(seq(0, 4, length=4), rev(rainbow(4)), space="RGB")
+expression <- as.matrix(expression)
+expression.ht <- Heatmap(expression, name = "log10(TPM value + 1)", col = col_fun, rect_gp = gpar(col = "white", lwd = 2), cluster_rows = TRUE,cluster_columns = FALSE, 
+                 row_names_side = "left", column_names_side = "bottom",column_names_gp = gpar(fontsize = 12), row_dend_width = unit(2, "cm"))
+expression.ht
+library(GetoptLong)
+pdf(qq("dup_heatmap_3.pdf"), width = 10, height = 10)
+draw(expression.ht, column_title_gp=gpar(fontsize = 16))
+dev.off()
+```
+
 ##### h. Principal component analysis (PCA) 
 R script
+```
+library(ggplot2)
+library(ggrepel)
+expression_pca <- select(expression_raw,-Pollen_1, -Pollen_2, -Pollen_3, -Stigma_1, -Stigma_2, -Stigma_3)
+row.names(expression_pca) <- expression_pca[['Gene ID']]
+expression_pca <- expression_pca[2:7]
+head(expression_pca)
+pca1 <- prcomp(expression_pca[],center = TRUE,scale. = TRUE)
+df1 <- pca1$x 
+df1 <- as.data.frame(df1)
+summ1 <- summary(pca1)
+summ1
+xlab1 <- paste0("PC1(",round(summ1$importance[2,1]*100,2),"%)")
+ylab1 <- paste0("PC2(",round(summ1$importance[2,2]*100,2),"%)")
+p.pca1 <- ggplot(data = df1,aes(x = PC1,y = PC2,color = rownames(expression_pca)))+ 
+  geom_point(size = 3.5)+
+  labs(x = xlab1,y = ylab1,color = "Condition",title = "PCA Scores Plot")+
+  guides(fill = "none")+
+  theme_bw()+
+  scale_fill_manual(values = c('orange', 'purple','blue','black','green','yellow','red'))+
+  scale_colour_manual(values = c('orange', 'purple','blue','black','green','yellow','red'))+
+  theme(axis.text = element_text(size = 14, face='bold'), panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+        plot.margin = unit(c(0.4,0.4,0.4,0.4),'cm'))
+p.pca1
+filename.pca.4="dup_pca_4.pdf"
+ggsave(file=filename.pca.4, p.pca1, width=10, height=10, units="in")
+```
 
-##### i. Extracte the normalized expression data of the two studied *A. thaliana* duplicate genes *AT5G12950* and *AT5G12960*, which contain 2,843 samples from the previous 106 RNA-seq studies and werer analyzed by Genevestigator.   
+##### i. Extracte the normalized expression data of the two studied *A. thaliana* duplicate genes *AT5G12950* and *AT5G12960*, which contain 2,843 samples from the previous 106 RNA-seq studies and were analyzed by Genevestigator.   
 R script
 Draw the heatmap.
 
+```
+expression_vestigator <- read.csv("genevestgator.csv", header = T)
+row.names(expression_vestigator) <- expression_vestigator[['Sample']]
+expression_vestigator <- select(expression_vestigator,AT5G12950, AT5G12960)
+logplusone <- function(x) {log10(x[1] + 1)}
+expression_vestigator[,] <- as.data.frame(lapply(expression_vestigator[,], FUN = function(x) {sapply(x, FUN = logplusone)}))
+summary(expression_vestigator)
+col_fun <- colorRamp2(seq(0, 4, length=4), rev(rainbow(4)), space="RGB")
+expression_vestigator <- as.matrix(expression_vestigator)
 
-##### j. Download the Proteomic data, do the statistical analysis and draw the plot
+pollen <- read.csv("pollen_id.csv", header = F)
+pollen_l = rownames(expression_vestigator) %in% pollen$V1
+summary(pollen_l)
+expression_vestigator.list <- Heatmap(expression_vestigator,name = 'gene expression', col = col_fun, cluster_rows = TRUE,cluster_columns = FALSE, 
+                                    show_row_names = FALSE,show_column_names = FALSE, use_raster = TRUE, raster_by_magick = TRUE) + 
+                              Heatmap(pollen_l + 0, name = "pollen", col = c("0" = "black", "1" = "Orange"), 
+                                      show_heatmap_legend = TRUE, width = unit(5, "mm"),show_column_names = FALSE)
+expression_vestigator.list.ht = draw(expression_vestigator.list, main_heatmap = "gene expression")
+expression_vestigator.list.ht
+library(GetoptLong)
+library(ggplot2)
+filename.expression_vestigator.ht="dup_heatmap_vestigator_1.pdf"
+ggsave(file=filename.expression_vestigator.ht, expression_vestigator.list.ht, width=10, height=10, units="in")
+```
+
+##### i. Extracte the normalized expression data of the two studied *A. thaliana* duplicate genes *AT5G12950* and *AT5G12960*, which involved within 79 organs and developmental stages from [Trava](http://travadb.org/).   
+R script
+Draw the heatmap.
+
+```
+trava_raw <- read.csv("trava.csv", header = T)
+row.names(trava_raw) <- trava_raw[['Sample']]
+trava <- select(trava_raw,-Sample)
+row.names(trava) <- trava_raw[['Sample']]
+logplusone <- function(x) {log2(x[1] + 1)}
+trava[,] <- as.data.frame(lapply(trava[,], FUN = function(x) {sapply(x, FUN = logplusone)}))
+col_fun <- colorRamp2(seq(0, 16, length=4), rev(rainbow(4)), space="RGB")
+trava <- as.matrix(trava)
+trava.ht <- Heatmap(trava, name = "TMM value", col = col_fun, rect_gp = gpar(col = "white", lwd = 2), cluster_rows = TRUE,cluster_columns = FALSE, 
+                         row_names_side = "right", show_column_names = FALSE, row_names_gp = gpar(fontsize = 8),column_names_side = "bottom")
+trava.ht
+pdf(qq("dup_heatmap_trava.pdf"), width = 10, height = 10)
+draw(trava.ht, column_title_gp=gpar(fontsize = 16))
+```
+
+##### k. Download the Proteomic data, do the statistical analysis and draw the plot
 Use [ATHENA](http://athena.proteomics.wzw.tum.de/) to obtain the protein expression of AT5G12950 and AT5G12960 among 30 tissues.
 Draw the plot and do the statistical analysis via GraphPad Prism. 
-
