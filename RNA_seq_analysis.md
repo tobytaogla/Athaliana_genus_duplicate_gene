@@ -77,7 +77,7 @@ write.csv(alyr_tpm,paste0(prefix,"_tpm.csv"))
 ```
 Draw heatmap.  
 
-##### H. Principal component analysis (PCA) 
+##### h. Principal component analysis (PCA) 
 R script
 
 ##### i. Extracte the normalized expression data of the two studied *A. thaliana* duplicate genes *AT5G12950* and *AT5G12960*, which contain 2,843 samples from the previous 106 RNA-seq studies and werer analyzed by Genevestigator.   
