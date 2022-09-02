@@ -60,9 +60,9 @@ featurecount/featureCounts -T 8 -p -a $ref_genome/Crubella_474_v1.1.gene_exons.g
 featurecount/featureCounts -T 8 -p -a $ref_genome/BrapaFPsc_277_v1.3.gene_exons.gff3 -g Parent -o dup/count/Brap_counts_2.txt $brap/BRPol?Aligned.sortedByCoord.out.bam $brap/BRStig?Aligned.sortedByCoord.out.bam $brap/BRPol?_150922Aligned.sortedByCoord.out.bam
 ```
 
-##### g. Use R command to generate the normalized TPM value and draw the heatmap for the studied homologs 
+##### g. Use R to generate the normalized TPM value and draw the heatmap for the studied homologs 
 Normalize the raw expression value to TPM value 
-
+R script
 ```
 alyr <- read.table("Alyr_counts.txt",header=TRUE, sep="\t", row.names=1 )
 alyr_metadata <- alyr[,1:5]
@@ -77,12 +77,15 @@ write.csv(alyr_tpm,paste0(prefix,"_tpm.csv"))
 ```
 Draw heatmap.  
 
+##### h. Principal component analysis (PCA) 
+R script
 
-##### h. Extracte the normalized expression data of the two studied *A. thaliana* duplicate genes *AT5G12950* and *AT5G12960*, which contain 2,843 samples from the previous 106 RNA-seq studies and werer analyzed by Genevestigator.   
+##### i. Extracte the normalized expression data of the two studied *A. thaliana* duplicate genes *AT5G12950* and *AT5G12960*, which contain 2,843 samples from the previous 106 RNA-seq studies and werer analyzed by Genevestigator.   
+R script
 Draw the heatmap.
 
 
-##### i. Download the Proteomic data, do the statistical analysis and draw the plot
+##### j. Download the Proteomic data, do the statistical analysis and draw the plot
 Use [ATHENA](http://athena.proteomics.wzw.tum.de/) to obtain the protein expression of AT5G12950 and AT5G12960 among 30 tissues.
 Draw the plot and do the statistical analysis via GraphPad Prism. 
 
