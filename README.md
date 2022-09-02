@@ -1,7 +1,7 @@
 # Neofunctionalization of tandem duplicate genes encoded novel putative beta-L-arabinofuranosidases in Arabidopsis thaliana analysis
+![](https://github.com/tobytaogla/Athaliana_genus_duplicate_gene/blob/main/Figure_7.pdf)
+
 Workflow and scripts used for this project bioinformatics analysis
-
-
 ![](https://github.com/tobytaogla/Phragmites-australis-transcriptome-optimal-assembly/blob/main/Flowchart.png)
 
 
