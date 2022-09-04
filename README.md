@@ -15,7 +15,7 @@ Tandem duplication, one of the major types of duplication, provides the raw mate
 ## 3. [Software](https://github.com/tobytaogla/Athaliana_genus_duplicate_gene/blob/main/Software.md)
 ## 4. Data analysis
 #### A. [Verification of paralogous relation between *AT5G12950* and *AT5G12960*](https://github.com/tobytaogla/Athaliana_genus_duplicate_gene/blob/main/Homologs_identification.md)
-#### B. [*In silico* analyses for protein redefinition](../blob/main/Protein_redefinition.md)
+#### B. [*In silico* analyses for protein redefinition](https://github.com/tobytaogla/Athaliana_genus_duplicate_gene/blob/main/Protein_redefinition.md)
 #### C. [RNA_seq Analyses](https://github.com/tobytaogla/Athaliana_genus_duplicate_gene/blob/main/RNA_seq_analysis.md)
 #### D. [Functionality analysis](https://github.com/tobytaogla/Athaliana_genus_duplicate_gene/blob/main/Functionality_analysis.md)
 #### E. [Population genetics analysis](https://github.com/tobytaogla/Athaliana_genus_duplicate_gene/blob/main/Population_genetics_analysis.md)
