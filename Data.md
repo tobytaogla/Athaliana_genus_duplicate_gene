@@ -49,3 +49,6 @@ Download from the [AlphaFold DB](https://alphafold.ebi.ac.uk/)
 
 ##### c. Protein expression data
 Use [ATHENA](http://athena.proteomics.wzw.tum.de/) to obtain the Protein expression data of AT5G12950 and AT5G12960
+
+##### d. Synteny analysis reference
+[Phytozome gene family 123840092](https://phytozome-next.jgi.doe.gov/report/family/5264/)
