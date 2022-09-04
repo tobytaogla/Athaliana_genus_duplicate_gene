@@ -41,3 +41,6 @@ iqtree -s alignment.fa -nt 8 -m MFP -mtree -b 1000
 ```
 ##### i. Use the output file alignment.fa.treefile in [iTOL](https://itol.embl.de/.)  
 ##### j. Extract exon and intron information from the gff file of each identified homologs, use [GSDS](http://gsds.gao-lab.org/) to show the exon/intron structure.
+```
+perl gene_family_demo/script/get_gene_exon_from_gff.pl -in1 dup/structure/atha_lst.txt -in2 dup/structure/Athaliana_447_Araport11.gff3 -out dup/strucure/atha_gene_exon_info.gff
+```
