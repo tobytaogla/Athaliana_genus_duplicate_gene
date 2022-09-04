@@ -40,4 +40,4 @@ cd dup/ref/duplicate
 iqtree -s alignment.fa -nt 8 -m MFP -mtree -b 1000 
 ```
 ##### i. Use the output file alignment.fa.treefile in [iTOL](https://itol.embl.de/.)  
-##### j. Use [GSDS](http://gsds.gao-lab.org/) to show the exon/intron structure.
+##### j. Extract exon and intron information from the gff file of each identified homologs, use [GSDS](http://gsds.gao-lab.org/) to show the exon/intron structure.
