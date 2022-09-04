@@ -39,5 +39,8 @@ Pfam <https://pfam.xfam.org/>
 ##### g. use [SUBA4](https://suba.live) to predict AT5G12950 and AT5G12960 subcelluar localization. 
 
 ##### h. use [MEME v5.4.1](https://meme-suite.org/meme/tools/meme) to predict the top 10 conserved motifs in the GH127 domain of each identified Brassicaceae putative beta-L-arabinofuranosidase. 
+similar settings as 'meme 8_protein.fa -protein -oc . -nostatus -time 14400 -mod anr -nmotifs 10 -minw 6 -maxw 100 -objfun classic -markov_order 0'
 
 ##### i. download the protein structure of AT5G12950 and AT5G12960, and analyzed them by PyMOL. 
+
+##### j. check the molecular weight, length and pI of each identified Brassicaceae putative beta-L-arabinofuranosidase, by [ExPASy] (https://web.expasy.org/protparam/). 
