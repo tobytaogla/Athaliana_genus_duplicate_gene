@@ -6,7 +6,7 @@ The model of this study
 Divergent expression of two tandem duplicate genes
 ![](https://github.com/tobytaogla/Athaliana_genus_duplicate_gene/blob/main/Heatmap.jpg)
 Workflow and scripts used for this project bioinformatics analysis
-![](https://github.com/tobytaogla/Athaliana_genus_duplicate_gene/blob/main/Flowchart.png)
+![](https://github.com/tobytaogla/Athaliana_genus_duplicate_gene/blob/main/Flowchart_1.png)
 
 
 ## 1. Introduction
