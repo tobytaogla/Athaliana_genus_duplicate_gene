@@ -2,7 +2,7 @@
 Download the Pseudogenomes of the two genes (*AT5G12950* and *AT5G12960*) from [*Arabidopsis* 1001 Genomes Project](https://1001genomes.org/tools.html), then manually check the sequences of all the 1,135 accssions, make them with the same length;    
 
 Use the python script to modify the raw date, (scripts in ~/Desktop/gene_family/script/);   
-###### 1. modify the name of each sequence among 1,135 accessions by 1135_fasta_name_motify.py
+###### 1. Modify the name of each sequence among 1,135 accessions by 1135_fasta_name_motify.py
 
 ```
 python ../script/1135_fasta_name_motify.py pseudogenomes_AT5G12950.fa > pseudogenomes_AT5G12950_modify.fa
@@ -44,13 +44,13 @@ if len(header_set) != 0:
     print(len(header_set),'of the headers from list were not identified in the input fasta file.', file=sys.stderr)
 ```
 
-###### 3. remove the "/n" from the above generated filter file, make each sequence in one line
+###### 3. Remove the "/n" from the above generated filter file, make each sequence in one line
 
 ```
 awk '/^[>;]/ { if (seq) { print seq }; seq=""; print } /^[^>;]/ { seq = seq $0 } END { print seq }' pseudogenomes_AT5G12960_modify_2.fa > pseudogenomes_AT5G12960_modify_3.fa
 ```
 
-###### 4. manually align the sequence, then extract the CDS sequence
+###### 4. Manually align the sequence, then extract the CDS sequence
 1135_fasta_AT5G12960_cds_extract.py
 1135_fasta_AT5G12950_cds_extract.py 
 
@@ -59,7 +59,7 @@ python ../script/1135_fasta_AT5G12960_cds_extract.py pseudogenomes_AT5G12960_mod
 python ../script/1135_fasta_AT5G12950_cds_extract.py pseudogenomes_AT5G12950_modify.fa > pseudogenomes_AT5G12950_cds.fa
 ```
 
-###### 5. add the some reference cds sequence for certain analyses, then align them by Mafft.
+###### 5. Add the some reference cds sequence for certain analyses, then align them by Mafft.
  
 Only population sequences for tajama.d, Fu\_Li\_D and Fu\_Li\_F: pseudogenomes_AT5G12950_cds.fa & pseudogenomes_AT5G12960_cds.fa   
 
