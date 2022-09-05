@@ -59,7 +59,7 @@ python ../script/1135_fasta_AT5G12960_cds_extract.py pseudogenomes_AT5G12960_mod
 python ../script/1135_fasta_AT5G12950_cds_extract.py pseudogenomes_AT5G12950_modify.fa > pseudogenomes_AT5G12950_cds.fa
 ```
 
-###### 5. add the some reference cds sequence for certain analyses, then align them
+###### 5. add the some reference cds sequence for certain analyses, then align them by Mafft.
  
 Only population sequences for tajama.d, Fu\_Li\_D and Fu\_Li\_F: pseudogenomes_AT5G12950_cds.fa & pseudogenomes_AT5G12960_cds.fa   
 
@@ -68,9 +68,59 @@ Population sequences with three reference sequences (Crubella, Esalsugineum, Bst
 Population sequences with the orthologs (AT5G12950 with AL6G23540, and AT5G12960 with AL6G23554) for Fay\_Wu test:
 AT5G12950_cds_out_aly540_aln.fa & AT5G12960_cds_out_aly554_aln.fa
 
-These above files first use Mafft to align them, same as the analysis A and B, jobtd1 and jobtd2, 5/8/22. 
+###### 7. Use R script Popgenome.R to caculate the statitics, then use tajima_draw.R to visualize the result.  
+
+```
+library(PopGenome)
+#/Users/feng/Desktop/gene_family/popgenome/analysis
+AT5G12950_cds.class <- readData("AT5G12950_cds",include.unknown = TRUE)
+AT5G12960_cds.class <- readData("AT5G12960_cds",include.unknown = TRUE)
+AT5G12950_540_cds.class <-readData("AT5G12950_cds_540/",include.unknown = TRUE)
+AT5G12960_554_cds.class <-readData("AT5G12960_cds_554//",include.unknown = TRUE)
+AT5G12950_mk.class <- readData("AT5G12950_cds_mk/",include.unknown = TRUE)
+AT5G12960_mk.class <- readData("AT5G12960_cds_mk/",include.unknown = TRUE)
+
+#tajama.d, Fu_Li_D and Fu_Li_F
+get.sum.data(AT5G12950_cds.class)
+AT5G12950_cds.class <- neutrality.stats(AT5G12950_cds.class)
+get.neutrality(AT5G12950_cds.class)[[1]]
+AT5G12950_cds.class@region.data@synonymous
+sum(AT5G12950_cds.class@region.data@synonymous[[1]]==1) #the number of synonymous
+sum(AT5G12950_cds.class@region.data@synonymous[[1]]==0) #the number of non-synonymous 
+
+get.sum.data(AT5G12960_cds.class)
+AT5G12960_cds.class <- neutrality.stats(AT5G12960_cds.class)
+get.neutrality(AT5G12960_cds.class)[[1]]
+AT5G12960_cds.class@region.data@synonymous
+sum(AT5G12960_cds.class@region.data@synonymous[[1]]==1)
+sum(AT5G12960_cds.class@region.data@synonymous[[1]]==0)
 
 
-######d. Use R script Popgenome.R to caculate the statitics, then use tajima_draw.R to visualize the result.  
+#MK test
+AT5G12950_mk.class <- set.outgroup(AT5G12950_mk.class, c("Crubella", "Bstricta","Esalguineum"))
+AT5G12950_mk.class <- MKT(AT5G12950_mk.class,list(1:1135,1136:1138))
+get.MKT(AT5G12950_mk.class)
+AT5G12950.mk.fish <- data.frame("poly" = c(47, 33), "div" = c(32, 24), row.names = c("non-syn", "syn"), stringsAsFactors = FALSE )
+fisher.test(AT5G12950.mk.fish)
 
+AT5G12960_mk.class <- set.outgroup(AT5G12960_mk.class, c("Crubella", "Bstricta","Esalguineum"))
+AT5G12960_mk.class <- MKT(AT5G12960_mk.class,list(1:1121,1122:1124))
+get.MKT(AT5G12960_mk.class)
+AT5G12960.mk.fish <- data.frame("poly" = c(74, 16), "div" = c(65, 14), row.names = c("non-syn", "syn"), stringsAsFactors = FALSE )
+fisher.test(AT5G12960.mk.fish)
 
+#Fay-wu for cds with 540 or 554
+AT5G12950_540_cds.class <- neutrality.stats(AT5G12950_540_cds.class,detail=TRUE)
+get.neutrality(AT5G12950_540_cds.class)[[1]]
+AT5G12950_540_cds.class <- set.outgroup(AT5G12950_540_cds.class, c("AL6G23540"))
+AT5G12950_540_cds.class@region.data@outgroup
+AT5G12950_540_cds.class <- neutrality.stats(AT5G12950_540_cds.class,detail=TRUE)
+get.neutrality(AT5G12950_540_cds.class)[[1]]
+
+AT5G12960_554_cds.class <- neutrality.stats(AT5G12960_554_cds.class,detail=TRUE)
+get.neutrality(AT5G12960_554_cds.class)[[1]]
+AT5G12960_554_cds.class <- set.outgroup(AT5G12960_554_cds.class, c("AL6G23554"))
+AT5G12960_554_cds.class@region.data@outgroup
+AT5G12960_554_cds.class <- neutrality.stats(AT5G12960_554_cds.class,detail=TRUE)
+get.neutrality(AT5G12960_554_cds.class)[[1]]
+```
