@@ -35,7 +35,7 @@ parallel samtools-1.9/samtools sort dup/chip_seq/{}.sam -@ 8 -O bam -o dup/chip_
 ```
 ##### f. use sambamba to file the duplicate and unmatched reads
 ```
-parallel sambamba view -h -t 8 -f bam -F "[XS] == null and not unmapped  and not duplicate" {}_sorted.bam '>' {}_sorted_filter.bam ::: buds_H3K27me3 buds_H3K4me1 leaf_H3K27ac leaf_H3K27me3 leaf_H3K4me1 buds_H3K27ac
+parallel sambamba view -h -t 8 -f bam -F "[XS] == null and not unmapped and not duplicate" {}_sorted.bam '>' {}_sorted_filter.bam ::: buds_H3K27me3 buds_H3K4me1 leaf_H3K27ac leaf_H3K27me3 leaf_H3K4me1 buds_H3K27ac
 ```
 ##### g. use Deeptools bamCoverage to normalize and convert it to bw file for visulization
 ```
