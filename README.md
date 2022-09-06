@@ -21,5 +21,6 @@ Tandem duplication, one of the major types of duplication, provides the raw mate
 #### E. [Population genetics analysis](https://github.com/tobytaogla/Athaliana_genus_duplicate_gene/blob/main/Population_genetics_analysis.md)
 #### F. [Promoter region analysis](https://github.com/tobytaogla/Athaliana_genus_duplicate_gene/blob/main/Epigentic_analysis.md)
 ## 5. Citation and data deposit
+Feng Tao, Vishwanath Sollapura, Laurian Robert, and Chuanzhu Fan. Neofunctionalization of tandem duplicate genes encoded novel putative b-L-arabinofuranosidases in *Arabidopsis thaliana*. In preparation.
 
 
