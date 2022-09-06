@@ -47,7 +47,7 @@ FastQC/fastqc -o dup/fastqc/mnase/ -f fastq dup/mnase/raw_data/*.fastq
 seqkit stats dup/mnase/raw_data/*.fastq > dup/report/mnase_raw.txt
 parallel bowtie2 --threads 8 -x dup/index/bowtie/Atha -1 dup/mnase/raw_data/{}_1.fastq -2 dup/mnase/raw_data/{}_2.fastq -S dup/mnase/bam/{}.sam 2'>'dup/mnase/bam/{}_align.log ::: bud_mnase leaf_mnase 
 parallel samtools-1.9/samtools sort dup/mnase/bam/{}.sam -@ 8 -O bam -o dup/mnase/bam/{}.bam ::: bud_mnase leaf_mnase
-parallel sambamba view -h -t 8 -f bam -F "[XS] == null and not unmapped  and not duplicate" dup/mnase/bam/{}.bam '>' dup/mnase/bam/{}_sorted_filter.bam ::: bud_mnase leaf_mnase
+parallel sambamba view -h -t 8 -f bam -F "[XS] == null and not unmapped and not duplicate" dup/mnase/bam/{}.bam '>' dup/mnase/bam/{}_sorted_filter.bam ::: bud_mnase leaf_mnase
 bamCoverage -b dup/mnase/bam/bud_mnase_sorted_filter.bam -o dup/mnase/visual_bam/bud_mnase_sorted_filter.bw --binSize 20 --smoothLength 60 --extendReads 150 --centerRead --normalizeUsing BPM --effectiveGenomeSize 120000000 2>dup/mnase/visual_bam/leaf_mnase.lognnn
 bamCoverage -b dup/mnase/bam/leaf_mnase_sorted_filter.bam -o dup/mnase/visual_bam/leaf_mnase_sorted_filter.bw --binSize 20 --smoothLength 60 --extendReads 150 --centerRead --normalizeUsing BPM --effectiveGenomeSize 120000000 2>dup/mnase/visual_bam/leaf_mnase.lognnn
 ```
